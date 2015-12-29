@@ -14,8 +14,11 @@ ifeq ($(UNAMES),Linux)
 
   else
 
-    F90 := g95 -DG95 -g -fmod=../lib -I../lib 
-    CPP := g95 -E -DG95
+    F90 := gfortran \
+    -O3 \
+    -fdefault-real-8 \
+    -fdefault-double-8
+    CPP := gfortran -cpp
 
   endif
 
@@ -54,11 +57,11 @@ endif
 ifeq ($(UNAMES),Darwin)
 
     AR := /usr/bin/ar
-	F90 := gfortran \
-	    -O3 \
-	    -fdefault-real-8 \
-	    -fdefault-double-8
-		CPP := gfortran -cpp
+    F90 := gfortran \
+    -O3 \
+    -fdefault-real-8 \
+    -fdefault-double-8
+    CPP := gfortran -cpp
     MAKE := /usr/local/bin/gmake
 
 endif

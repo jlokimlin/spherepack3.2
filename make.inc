@@ -54,9 +54,11 @@ endif
 ifeq ($(UNAMES),Darwin)
 
     AR := /usr/bin/ar
-    F90 := gfortran 
-#   F90 := gfortran -fdefault-real-8 
-    CPP := gfortran -cpp
-    MAKE := /usr/bin/gmake
+	F90 := gfortran \
+	    -O3 \
+	    -fdefault-real-8 \
+	    -fdefault-double-8
+		CPP := gfortran -cpp
+    MAKE := /usr/local/bin/gmake
 
 endif

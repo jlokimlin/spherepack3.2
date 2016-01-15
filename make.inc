@@ -4,7 +4,6 @@ LIB=../lib/libspherepack.a
 UNAMES := $(shell uname -s)
 
 ENFORCE_64_BIT_PRECISION = \
--freal-4-real-8\
 -fdefault-real-8 \
 -fdefault-double-8
 
@@ -21,7 +20,7 @@ ifeq ($(UNAMES),Linux)
 
     F90 := gfortran \
     -O3 \
-    $(ENFORCE_64_BIT_PRECISION) \
+    $(ENFORCE_64_BIT_PRECISION)
     CPP := gfortran -cpp
 
   endif

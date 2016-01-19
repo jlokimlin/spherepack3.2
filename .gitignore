@@ -5,7 +5,7 @@
 *.a
 
 # Objects
-*.a
+*.o
 
 # Executables
 *.exe

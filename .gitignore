@@ -1,0 +1,11 @@
+# Modules
+*.mod
+
+# Libraries
+*.a
+
+# Objects
+*.a
+
+# Executables
+*.exe

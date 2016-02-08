@@ -7,6 +7,11 @@ ENFORCE_64_BIT_PRECISION = \
 -fdefault-real-8 \
 -fdefault-double-8
 
+#EXTERNAL_LIB_DIRECTORY = /usr/local/lib
+EXTERNAL_LIB_DIRECTORY = /usr/local/lib64
+
+BIN_DIRECTORY = /usr/local/bin
+
 ifeq ($(UNAMES),Linux)
 
   PGI := $(shell pgf90 2>&1)
@@ -18,9 +23,7 @@ ifeq ($(UNAMES),Linux)
 
   else
 
-    F90 := gfortran \
-    -O3 \
-    $(ENFORCE_64_BIT_PRECISION)
+    F90 := gfortran -O3 $(ENFORCE_64_BIT_PRECISION)
     CPP := gfortran -cpp
 
   endif
@@ -60,9 +63,7 @@ endif
 ifeq ($(UNAMES),Darwin)
 
     AR := /usr/bin/ar
-    F90 := gfortran \
-    -O3 \
-	$(ENFORCE_64_BIT_PRECISION)
+    F90 := gfortran -O3 $(ENFORCE_64_BIT_PRECISION)
     CPP := gfortran -cpp
     MAKE := /usr/local/bin/gmake
 
